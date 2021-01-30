@@ -52,4 +52,16 @@ class CrudController extends Controller {
 
         return redirect('/');
     }
+
+    public function destroy($id)
+    {
+      $todo = Todo::find($id);
+  
+      $todo->delete();
+  
+      return response()->json([
+        'message' => 'Data deleted successfully!'
+      ]);
 }
+}
+
